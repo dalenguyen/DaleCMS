@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Carbon\Carbon;
 
 class BlogController extends Controller
 {
@@ -19,7 +20,10 @@ class BlogController extends Controller
 
     public function index(){
       // /blog
-      $posts = Post::latest()->get();
+
+      $posts = Post::latest()
+                ->filter(request(['month', 'year']))
+                ->get();
 
       return view('blog.index', compact('posts'));
     }

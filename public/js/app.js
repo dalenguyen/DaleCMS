@@ -12152,23 +12152,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     mounted: function mounted() {
@@ -31781,58 +31764,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('div', {
     staticClass: "sidebar-module sidebar-module-inset"
   }, [_c('h4', [_vm._v("About Component ")]), _vm._v(" "), _c('p', [_vm._v("Etiam porta "), _c('em', [_vm._v("sem malesuada magna")]), _vm._v(" mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.")])]), _vm._v(" "), _c('div', {
-    staticClass: "sidebar-module"
-  }, [_c('h4', [_vm._v("Archives")]), _vm._v(" "), _c('ol', {
-    staticClass: "list-unstyled"
-  }, [_c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("March 2014")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("February 2014")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("January 2014")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("December 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("November 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("October 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("September 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("August 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("July 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("June 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("May 2013")])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("April 2013")])])])]), _vm._v(" "), _c('div', {
     staticClass: "sidebar-module"
   }, [_c('h4', [_vm._v("Elsewhere")]), _vm._v(" "), _c('ol', {
     staticClass: "list-unstyled"
