@@ -43,11 +43,13 @@ class BlogController extends Controller
         'title' => 'required|min: 3',
         'body' => 'required'
       ]);
-      // Only allow certain fields to the database
-      Post::create(request(['title', 'body']));
 
-      return redirect('/');
+      // Add slug to request
+      request()->merge(['slug' => str_slug(request('title'))]);
 
+      auth()->user()->publish(new Post(request(['title', 'body', 'slug'])));
+
+      return redirect('/blog');
     }
 
     public function edit(){

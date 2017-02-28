@@ -21,6 +21,6 @@ const app = new Vue({
 
 Vue.component('ads', require('./components/Ads.vue'));
 
-const ads = new Vue({
+new Vue({
     el: '#ads'
 });

@@ -23,11 +23,8 @@
   <body>
     @include('layouts.nav')
 
-    <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title"><i class="fa fa-address-book" aria-hidden="true"></i> The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
-      </div>
+    <div id="ads" class="blog-header">
+      <ads></ads>
     </div>
 
      <div class="container">
