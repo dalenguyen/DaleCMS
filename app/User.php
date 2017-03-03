@@ -48,7 +48,7 @@ class User extends Authenticatable
     public function publish(Post $post){
       $this->posts()->save($post);
     }
-    
+
     /**
      * Get full name of a user
      * @return [string] [description]

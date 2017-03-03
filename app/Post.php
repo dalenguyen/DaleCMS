@@ -38,10 +38,19 @@ class Post extends Model
     }
 
     if($year = $filters['year']){
-    $query->whereYear('created_at', $year);
+      $query->whereYear('created_at', $year);
+    }
+
+    if($author = $filters['author']){
+      $query->where('user_id', $author);
     }
   }
 
+  /**
+   * Return Archives for all the view in AppServiceProvider
+   *
+   * @return [Array] [description]
+   */
   public static function archives(){
     return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
                 ->groupBy('year','month')

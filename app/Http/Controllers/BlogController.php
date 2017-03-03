@@ -20,9 +20,10 @@ class BlogController extends Controller
 
     public function index(){
       // /blog
-
+      
+      // Post filter for archives and author
       $posts = Post::latest()
-                ->filter(request(['month', 'year']))
+                ->filter(request(['month', 'year', 'author']))
                 ->get();
 
       return view('blog.index', compact('posts'));
