@@ -26,7 +26,7 @@ class Post extends Model
     return $this->belongsTo(User::class);
   }
   /**
-   * Filter month and year scope for post archives
+   * Filter month, year and author scope for post archives
    *
    * @param  [type] $query   [description]
    * @param  [type] $filters [description]
