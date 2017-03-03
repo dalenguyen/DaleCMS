@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
+use App\Repositories\Posts;
 
 class BlogController extends Controller
 {
@@ -18,13 +19,11 @@ class BlogController extends Controller
         $this->middleware('blogger', ['except' => ['index', 'show']]);
     }
 
-    public function index(){
+    public function index(Posts $posts){
       // /blog
-      
-      // Post filter for archives and author
-      $posts = Post::latest()
-                ->filter(request(['month', 'year', 'author']))
-                ->get();
+
+      // Post filter for archives and author from Posts Repositories      
+      $posts = $posts->getPosts();
 
       return view('blog.index', compact('posts'));
     }
