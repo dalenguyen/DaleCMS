@@ -11,6 +11,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @yield('header_script')
+
     <link rel="stylesheet" href="/public/css/app.css">
 
     <!-- Scripts -->

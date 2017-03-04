@@ -8,5 +8,5 @@
     <a href="/blog/?author={{$post->user->id}}">{{$post->user->getFullName()}}</a> on
     {{$post->created_at->toFormattedDateString()}}
   </p>
-  {{$post->body}}
+  {!! $post->body !!}
 </div><!-- /.blog-post -->

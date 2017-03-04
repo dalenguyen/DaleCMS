@@ -18,4 +18,8 @@ Route::get('/blog/create', 'BlogController@create');
 Route::post('/blog', 'BlogController@store');
 Route::get('/blog/{post}', 'BlogController@show');
 
+Route::get('/demo', function(){
+  return view('demo');
+});
+
 Auth::routes();
