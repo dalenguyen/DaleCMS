@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Call post archives everytime sidebar is loaded in view
+        view()->composer('layouts.sidebar', function($view){
+          $view->with('archives', \App\Post::archives());
+        });
     }
 
     /**
