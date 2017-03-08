@@ -13,14 +13,14 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('sidebar', require('./components/Sidebar.vue'));
-
-const app = new Vue({
-    el: '#sidebar'
-});
-
-Vue.component('ads', require('./components/Ads.vue'));
-
-new Vue({
-    el: '#ads'
-});
+// Vue.component('sidebar', require('./components/Sidebar.vue'));
+//
+// const app = new Vue({
+//     el: '#sidebar'
+// });
+//
+// Vue.component('ads', require('./components/Ads.vue'));
+//
+// new Vue({
+//     el: '#ads'
+// });
