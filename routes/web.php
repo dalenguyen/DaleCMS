@@ -13,13 +13,16 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/blog', 'BlogController@index');
-Route::get('/blog/create', 'BlogController@create');
-Route::post('/blog', 'BlogController@store');
-Route::get('/blog/{post}', 'BlogController@show');
+Route::get('/admin', 'AdminController@index');
 
-Route::get('/demo', function(){
-  return view('demo');
-});
+Route::get('/admin/post/create', 'BlogController@create');
+Route::get('/admin/post', 'AdminController@post');
+Route::post('/admin/post', 'BlogController@store');
+
+Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{post}', 'BlogController@show');
+Route::get('/admin/post/{id}/edit', 'BlogController@edit');
+Route::put('/admin/post/{id}/update', 'BlogController@update');
+Route::delete('/admin/post/{id}', 'BlogController@destroy');
 
 Auth::routes();

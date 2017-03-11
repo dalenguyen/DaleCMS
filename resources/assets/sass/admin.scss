@@ -1,2 +1,21 @@
- // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+// Variables
+@import "variables";
+
+// Bootstrap
+$icon-font-path: "/public/fonts/";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+$fa-font-path: "/public/fonts";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+// https://github.com/bopoda/ace
+//
+
+
+//text fonts
+@import url(http://ace.jeka.by/assets/css/fonts.googleapis.com.css);
+
+//ace styles
+// @import url(http://ace.jeka.by/assets/css/ace.min.css);
+@import url(http://ace.jeka.by/assets/css/ace-skins.min.css);
+@import url(http://ace.jeka.by/assets/css/ace-rtl.min.css);

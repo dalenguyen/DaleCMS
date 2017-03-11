@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function index(Posts $posts){
       // /blog
 
-      // Post filter for archives and author from Posts Repositories      
+      // Post filter for archives and author from Posts Repositories
       $posts = $posts->getPosts();
 
       return view('blog.index', compact('posts'));
@@ -37,7 +37,7 @@ class BlogController extends Controller
     public function create(){
       // /blog/create
 
-      return view('blog.create');
+      return view('admin.posts.create');
     }
 
     public function store(){
@@ -53,24 +53,39 @@ class BlogController extends Controller
 
       auth()->user()->publish(new Post(request(['title', 'body', 'slug'])));
 
-      return redirect('/blog');
+      return redirect('/admin/post');
     }
 
-    public function edit(){
+    public function edit($id){
       // GET /blog/id/edit
+      $post = Post::findOrFail($id);
 
+      return view('admin.posts.edit', compact('post'));
 
     }
 
-    public function update(Request $request, $id){
+    public function update($id){
       // PATCH /blog/id
 
+      $this->validate(request(), [
+        'title' => 'required|min: 3',
+        'body' => 'required'
+      ]);
+
+      $post = Post::findOrFail($id);
+
+      $post->update(request()->all());
+
+      return redirect()->back();
 
     }
 
     public function destroy($id){
       // DELETE /blog/id
+      $post = Post::findOrFail($id);
 
+      $post->delete();
 
+      return redirect('/admin/post');
     }
 }

@@ -16,6 +16,9 @@ DaleCMS is a Content Management System (CMS) and web platform that I develop for
 At first, I want to create the front end for the CMS that has ability to
 
 * Show the home page for the portfolio. It is based on [Prologue](https://html5up.net/prologue)
+
+## DaleCMS Version 1.1.0
+
 * Ability to create a simple post
 * Simple User Management system
 
