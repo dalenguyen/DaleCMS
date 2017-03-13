@@ -25,4 +25,6 @@ Route::get('/admin/post/{id}/edit', 'BlogController@edit');
 Route::put('/admin/post/{id}/update', 'BlogController@update');
 Route::delete('/admin/post/{id}', 'BlogController@destroy');
 
+Route::resource('/admin/category', 'CategoryController');
+
 Auth::routes();

@@ -71,7 +71,7 @@
         </li>
 
         <li class="">
-          <a href="/admin/post">
+          <a href="/admin/category">
             <i class="menu-icon fa fa-caret-right"></i>
             Categories
           </a>
