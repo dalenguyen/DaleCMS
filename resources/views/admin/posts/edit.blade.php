@@ -2,16 +2,8 @@
 
 @section('header_script')
   <link rel="shortcut icon" type="image/png" href="{{ asset('/public/vendor/laravel-filemanager/img/folder.png') }}">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css" />
-  <style type="text/css">
-    .bootstrap-tagsinput {
-        width: 100%;
-    }
-    .label {
-        line-height: 2 !important;
-    }
-  </style>
-
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 @endsection
 
 @section('content')
@@ -25,49 +17,11 @@
     <div class="col-xs-12">
       <!-- PAGE CONTENT BEGINS -->
       <form method="post" action="/admin/post/{{$post->id}}/update">
-        {{ csrf_field() }}
         <input type="hidden" name="_method" value="PUT">
-
-        <div class="col-xs-9">
-
-          <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" name="title" required value="{{$post->title}}">
-          </div>
-
-          <div class="form-group">
-            <label for="body">Body:</label>
-            <textarea name="body" id="body" class="form-control" required>
-                {!! $post->body !!}
-            </textarea>
-          </div>
-
-          @include('partials.errors')
-
-            <div class="input-group">
-              <span class="input-group-btn">
-                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choose
-                </a>
-              </span>
-              <input id="thumbnail" class="form-control" type="text" name="filepath">
-            </div>
-            <img id="holder" style="margin-top:15px;max-height:100px;">
-        </div>
-
-        <div class="col-xs-3">
-
-          <div class="form-group">
-            <label for="category">Category:</label>
-            <input type="text" class="form-control" id="categories" name="categories" multiple data-role="tagsinput" >
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-pencil"></i> Save</button>
-            <a href="javascript: deletePost()"><div class="btn btn-danger"><i class="fa fa-btn fa-trash"></i> Delete</div></a>
-          </div>
-          
-        </div>
+        @include('admin.posts._form', [
+          'title' => $post->title,
+          'body'  => $post->body
+        ])
       </form>
 
       <!-- Delete form -->
@@ -87,7 +41,8 @@
 @endsection
 
 @section('scripts')
-  <script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
   <script>
      var route_prefix = "{{ url(config('lfm.prefix')) }}";

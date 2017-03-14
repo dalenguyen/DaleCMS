@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
 use App\Repositories\Posts;
+use App\Category;
 
 class BlogController extends Controller
 {
@@ -37,7 +38,13 @@ class BlogController extends Controller
     public function create(){
       // /blog/create
 
-      return view('admin.posts.create');
+      $categories = Category::get()->pluck('name')->toArray();
+
+      // Array start at 1 instead of 0
+      $categories = array_combine(range(1, count($categories)), $categories);
+
+
+      return view('admin.posts.create', compact('categories'));
     }
 
     public function store(){
@@ -51,7 +58,11 @@ class BlogController extends Controller
       // Add slug to request
       request()->merge(['slug' => str_slug(request('title'))]);
 
-      auth()->user()->publish(new Post(request(['title', 'body', 'slug'])));
+      $post = new Post(request(['title', 'body', 'slug']));
+
+      auth()->user()->publish($post);
+
+      $post->categories()->attach(request('categories'));
 
       return redirect('/admin/post');
     }
@@ -60,7 +71,18 @@ class BlogController extends Controller
       // GET /blog/id/edit
       $post = Post::findOrFail($id);
 
-      return view('admin.posts.edit', compact('post'));
+      $categories = Category::get()->pluck('name')->toArray();
+
+      // Array start at 1 instead of 0
+      array_unshift($categories,"");
+      unset($categories[0]);
+
+      $selectedArray = $post->categories->pluck('id')->toArray();
+
+      // dd(in_array(2, $selectedArray));
+
+
+      return view('admin.posts.edit', compact('post', 'categories', 'selectedArray'));
 
     }
 
@@ -73,6 +95,14 @@ class BlogController extends Controller
       ]);
 
       $post = Post::findOrFail($id);
+
+      // Sync Categories to post
+
+        if(request('categories') !== null){
+            $this->syncCategoriess(request('categories'), $post);
+        }else{
+            $this->syncCategoriess([], $post);
+        }
 
       $post->update(request()->all());
 
@@ -87,5 +117,16 @@ class BlogController extends Controller
       $post->delete();
 
       return redirect('/admin/post');
+    }
+
+    /**
+     * Sync Categories to post update method
+     *
+     * @param $categories array
+     * @param $post
+     */
+    private function syncCategoriess(array $categories, $post)
+    {
+        $post->categories()->sync($categories);
     }
 }

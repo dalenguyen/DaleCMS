@@ -2,6 +2,8 @@
 
 @section('header_script')
   <link rel="shortcut icon" type="image/png" href="{{ asset('/public/vendor/laravel-filemanager/img/folder.png') }}">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 @endsection
 
 @section('content')
@@ -15,34 +17,11 @@
     <div class="col-xs-12">
       <!-- PAGE CONTENT BEGINS -->
       <form method="post" action="/admin/post">
-        {{ csrf_field() }}
-        <div class="form-group">
-          <label for="title">Title:</label>
-          <input type="text" class="form-control" id="title" name="title" required>
-        </div>
-
-        <div class="form-group">
-          <label for="body">Body:</label>
-          <textarea name="body" id="body" class="form-control" required>
-              {!! old('content', "Enter your text") !!}
-          </textarea>
-        </div>
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Publish</button>
-        </div>
-
-        @include('partials.errors')
-
-          <div class="input-group">
-            <span class="input-group-btn">
-              <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                <i class="fa fa-picture-o"></i> Choose
-              </a>
-            </span>
-            <input id="thumbnail" class="form-control" type="text" name="filepath">
-          </div>
-          <img id="holder" style="margin-top:15px;max-height:100px;">
+          @include('admin.posts._form', [
+            'title' => '',
+            'body'  => '',
+            'selectedArray' => []
+          ])
       </form>
       <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
@@ -54,6 +33,9 @@
      var route_prefix = "{{ url(config('lfm.prefix')) }}";
      console.log(route_prefix);
   </script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
     <!-- TinyMCE init -->
   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
