@@ -4,7 +4,13 @@
   <div class="blog-post clearfix">
     <div class="post-title-container">
 
-      <a href="/blog/{{$post->id}}"><h1>{{$post->title}}</h1></a>
+      <a href="/blog/{{$post->slug}}"><h1>{{$post->title}}</h1></a>
+
+      @if(Auth::check() && Auth::user()->is_blogger)
+        <a href="/admin/post/{{$post->slug}}/edit" class="tooltip-success" data-rel="tooltip">
+            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+        </a>
+      @endif
 
       <div class="post-materials clearfix">
         <span class="hidden-xs-down">
@@ -22,16 +28,16 @@
         </span>
         <span class="post-cat">
           <i class="fa fa-tags"></i>
-          <a href="#">Get category</a>
+          <a href="#">{{$post->getCategory()}}</a>
         </span>
       </div>
     </div>
     <div class="post-type-icon hidden-md-down">
       <i class="fa fa-file-text-o" title="Standart Post Format"></i>
     </div>
-    <div class="media-materials">
+    {{-- <div class="media-materials">
       <img src="http://3.bp.blogspot.com/-CZORl3BLNNE/VngyL5o8vcI/AAAAAAAAHYY/gxB7zYZ8ZTg/s1600/background-1-750x360.jpg" width="100%">
-    </div>
+    </div> --}}
     <div class="post-content clearfix">
       <div class="post-content-blog">
         <div style="display: block;"> {!! $postContent !!}</div>
@@ -39,7 +45,7 @@
       </div>
       @if($readmore)
         <div class="continue-reading pull-left">
-          <a href="/blog/{{$post->id}}" target="_blank">READ MORE</a>
+          <a href="/blog/{{$post->slug}}" target="_blank">READ MORE</a>
         </div>
       @endif
       <div class="blog-classic-share pull-right clearfix">

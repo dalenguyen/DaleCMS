@@ -52,7 +52,7 @@
   														</td>
 
   														<td>
-  															<a href="/blog/{{$post->id}}" target="_blank">{{$post->title}}</a>
+  															<a href="/blog/{{$post->slug}}" target="_blank">{{$post->title}}</a>
   														</td>
   														<td>{{$post->user->getFullName()}}</td>
   														<td class="hidden-480">-</td>
@@ -65,23 +65,13 @@
   														<td>
   															<div class="hidden-sm hidden-xs action-buttons">
 
-  																<a class="green" href="/admin/post/{{$post->id}}/edit">
+  																<a class="green" href="#">
   																	<i class="ace-icon fa fa-pencil bigger-130"></i>
   																</a>
 
-  																<a class="red" href="javascript: deletePost()">
+  																<a class="red" href="#">
   																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
   																</a>
-
-                                  {{--Delete Post Form    --}}
-                                <form style="display: none;" action="{{ url('/admin/post/'.$post->id) }}" method="POST" name="deleteForm">
-                                    {!! csrf_field() !!}
-                                    {!! method_field('DELETE') !!}
-
-                                    <button type="btnSubmit" class="btn btn-danger">
-                                        <i class="fa fa-btn fa-trash"></i> Delete
-                                    </button>
-                                </form> <!-- Delete Form -->
   															</div>
 
   															<div class="hidden-md hidden-lg">
@@ -137,7 +127,6 @@
 		<script src="http://ace.jeka.by/assets/js/dataTables.select.min.js"></script>
 
     <script type="text/javascript">
-
 			jQuery(function($) {
 				//initiate dataTables plugin
 				var myTable =
@@ -300,10 +289,5 @@
 				}
 
 			})
-
-      // Delete post function
-      function deletePost() {
-              document.deleteForm.submit();
-        }
 		</script>
 @endsection
