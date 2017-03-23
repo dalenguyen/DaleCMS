@@ -16,12 +16,17 @@ DaleCMS is a Content Management System (CMS) and web platform that I develop for
 At first, I want to create the front end for the CMS that has ability to
 
 * Show the home page for the portfolio. It is based on [Prologue](https://html5up.net/prologue)
+
+## DaleCMS Version 1.1.0
+
+* The Admin front-end is based on [Ace Admin](https://github.com/bopoda/ace)
 * Ability to create a simple post
+* Add Categories to a post
 * Simple User Management system
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within DaleCMS, please send an e-mail to Dale Nguyen at dungnq@itbox4vn.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within DaleCMS, please send an e-mail to [Dale Nguyen](dungnq@itbox4vn.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 

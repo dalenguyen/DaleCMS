@@ -56,4 +56,28 @@ class User extends Authenticatable
     public function getFullName(){
       return $this->first_name ." ". $this->last_name;
     }
+
+    /**
+     * Get user's role
+     * @return [string] [description]
+     */
+    public function getRole(){
+      if($this->is_admin){
+        return 'Admin';
+      }else if($this->is_blogger & !$this->is_admin){
+        return 'Blogger';
+      }else{
+        return 'Subscriber';
+      }
+    }
+
+    /**
+     * Hash the password attribute
+     *
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }

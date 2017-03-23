@@ -57,4 +57,12 @@ class Post extends Model
                 ->orderByRaw('min(created_at) desc')
                 ->get()->toArray();
   }
+
+  /**
+   * Return category of a post
+   */
+
+  public function getCategory(){
+    return ($this->categories->first()) ? $this->categories->first()->name : "Uncategorized";
+  }
 }

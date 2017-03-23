@@ -1,49 +1,49 @@
-{{-- blog/create.blade.php --}}
+@extends('admin.layouts.master')
 
-@extends('layouts.master')
 @section('header_script')
   <link rel="shortcut icon" type="image/png" href="{{ asset('/public/vendor/laravel-filemanager/img/folder.png') }}">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 @endsection
+
 @section('content')
-  <div class="col-sm-8">
-    <h2>Publish a Post</h2>
-    <hr>
+  <div class="page-header">
+    <h1>
+      Edit Post (<a href="/blog/{{$post->id}}" target="_blank">view</a>)
+    </h1>
+  </div><!-- /.page-header -->
 
-    <form method="post" action="/blog">
-      {{ csrf_field() }}
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" class="form-control" id="title" name="title" required>
-      </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- PAGE CONTENT BEGINS -->
+      <form method="post" action="/admin/post/{{$post->id}}/update">
+        <input type="hidden" name="_method" value="PUT">
+        @include('admin.posts._form', [
+          'title' => $post->title,
+          'body'  => $post->body
+        ])
+      </form>
 
-      <div class="form-group">
-        <label for="body">Body:</label>
-        <textarea name="body" id="body" class="form-control" required>
-            {!! old('content', "Enter your text") !!}
-        </textarea>
-      </div>
+      <!-- Delete form -->
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Publish</button>
-      </div>
+      {{--Delete Post Form    --}}
+    <form style="display: none;" action="{{ url('/admin/post/'.$post->id) }}" method="POST" name="deleteForm">
+        {!! csrf_field() !!}
+        {!! method_field('DELETE') !!}
 
-      @include('partials.errors')
+        <button type="submit" class="btn btn-danger">
+            <i class="fa fa-btn fa-trash"></i> Delete
+        </button>
+    </form> <!-- Delete Form -->
+      <!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+@endsection
 
-        <div class="input-group">
-          <span class="input-group-btn">
-            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-              <i class="fa fa-picture-o"></i> Choose
-            </a>
-          </span>
-          <input id="thumbnail" class="form-control" type="text" name="filepath">
-        </div>
-        <img id="holder" style="margin-top:15px;max-height:100px;">
-    </form>
+@section('scripts')
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
-  </div>
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script>
      var route_prefix = "{{ url(config('lfm.prefix')) }}";
      console.log(route_prefix);
@@ -93,4 +93,10 @@
     $('#lfm').filemanager('image', {prefix: route_prefix});
   </script>
 
+  <script>
+    // Delete post function
+    function deletePost() {
+            document.deleteForm.submit();
+      }
+  </script>
 @endsection
