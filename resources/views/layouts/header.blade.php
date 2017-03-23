@@ -20,6 +20,22 @@
 					{{-- <li><a href="#" id="project-link" class="skel-layers-ignoreHref"><span class="icon fa-code">Projects</span></a></li> --}}
 					<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About Me</span></a></li>
 					<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+
+					@if(Auth::check())
+						<li><hr></li>
+						<li>
+              <a href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                  <span class="icon fa-sign-out"> Logout
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  {{ csrf_field() }}
+              </form>
+          </li>
+					@endif
+					
 				</ul>
 			</nav>
 	</div>

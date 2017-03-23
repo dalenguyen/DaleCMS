@@ -18,8 +18,9 @@ class CheckBlogger
     {
         if(Auth::check() && Auth::user()->isAuthorized()){
           return $next($request);
+          // return redirect('/admin');
         }else{
-          return redirect('/');
+          return redirect('/login');
         }
     }
 }

@@ -139,7 +139,7 @@
         <span class="menu-text">
           Users
 
-          <span class="badge badge-primary">5</span>
+          <span class="badge badge-primary">{{count(App\User::get())}}</span>
         </span>
 
         <b class="arrow fa fa-angle-down"></b>
@@ -149,7 +149,7 @@
 
       <ul class="submenu">
         <li class="">
-          <a href="faq.html">
+          <a href="/admin/user">
             <i class="menu-icon fa fa-caret-right"></i>
             All Users
           </a>
@@ -157,7 +157,7 @@
           <b class="arrow"></b>
         </li>
         <li class="">
-          <a href="faq.html">
+          <a href="/admin/user/create">
             <i class="menu-icon fa fa-caret-right"></i>
             Add New
           </a>
@@ -165,7 +165,7 @@
           <b class="arrow"></b>
         </li>
         <li class="">
-          <a href="faq.html">
+          <a href="/admin/user/{{Auth::user()->id}}/edit">
             <i class="menu-icon fa fa-caret-right"></i>
             Your Profile
           </a>

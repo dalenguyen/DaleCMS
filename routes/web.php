@@ -19,6 +19,8 @@ Route::get('/admin/post/create', 'BlogController@create');
 Route::get('/admin/post', 'AdminController@post');
 Route::post('/admin/post', 'BlogController@store');
 
+Route::resource('/admin/user', 'UserController');
+
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{post}', 'BlogController@show');
 Route::get('/admin/post/{id}/edit', 'BlogController@edit');
