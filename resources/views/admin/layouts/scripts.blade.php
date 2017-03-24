@@ -27,3 +27,27 @@
 
 <!-- inline scripts related to this page -->
 @yield('scripts')
+
+<script type="text/javascript">
+  // $('.dropdown-toggle').click(function(){
+  //   console.log('click');
+  //   //now find the `.child` elements that are direct children of the clicked `<li>` and toggle it into or out-of-view
+  //   $(this).parent().children('.submenu').slideToggle('slow');
+  // });
+
+  // add active class to nav menu
+  $(function() {
+      var url = location.pathname.split("/")[1];
+
+      if(location.pathname.split("/")[2] !== undefined){
+        url = url + "/" + location.pathname.split("/")[2];
+      }
+
+      if(location.pathname.split("/")[3] !== undefined){
+        url = url + "/" + location.pathname.split("/")[3];
+      }
+
+      $('.nav li a[href^="/' + url + '"]:first').parent().addClass('active');
+      $('.nav li a[href^="/' + url + '"]:first').parent().parent().show();
+  });
+</script>

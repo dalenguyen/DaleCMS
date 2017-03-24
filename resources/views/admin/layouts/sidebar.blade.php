@@ -1,7 +1,7 @@
 <div id="sidebar" class="sidebar responsive ace-save-state">
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
     try{ace.settings.loadState('sidebar')}catch(e){}
-  </script>
+  </script> --}}
 
   <div class="sidebar-shortcuts" id="sidebar-shortcuts">
     <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
@@ -34,7 +34,7 @@
   </div><!-- /.sidebar-shortcuts -->
 
   <ul class="nav nav-list">
-    <li class="active">
+    <li class="">
       <a href="/admin">
         <i class="menu-icon fa fa-tachometer"></i>
         <span class="menu-text"> Dashboard </span>
