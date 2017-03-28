@@ -9,7 +9,7 @@
 @section('content')
   <div class="page-header">
     <h1>
-      Edit Post (<a href="/blog/{{$post->id}}" target="_blank">view</a>)
+      Edit Post (<a href="/blog/{{$post->slug}}" target="_blank">view</a>)
     </h1>
   </div><!-- /.page-header -->
 
@@ -20,7 +20,8 @@
         <input type="hidden" name="_method" value="PUT">
         @include('admin.posts._form', [
           'title' => $post->title,
-          'body'  => $post->body
+          'body'  => $post->body,
+          'thumbnail' => $post->thumbnail
         ])
       </form>
 
@@ -60,7 +61,7 @@
         "image link"
       ],
       relative_urls: false,
-      height: 200,
+      height: 400,
       file_browser_callback : function(field_name, url, type, win) {
         var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
         var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;

@@ -65,7 +65,7 @@
   														<td>
   															<div class="hidden-sm hidden-xs action-buttons">
 
-  																<a class="green" href="#">
+  																<a class="green" href="/admin/post/{{$post->slug}}/edit">
   																	<i class="ace-icon fa fa-pencil bigger-130"></i>
   																</a>
 
@@ -83,7 +83,7 @@
   																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 
   																		<li>
-  																			<a href="/admin/post/{{$post->id}}/edit" class="tooltip-success" data-rel="tooltip" title="Edit">
+  																			<a href="/admin/post/{{$post->slug}}/edit" class="tooltip-success" data-rel="tooltip" title="Edit">
   																				<span class="green">
   																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
   																				</span>

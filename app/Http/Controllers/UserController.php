@@ -24,9 +24,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
-        // return view('admin.test2');
+    {        
         $users = User::get();
 
         return view('admin.users.index', compact('users'));

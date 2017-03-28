@@ -32,7 +32,7 @@ class BlogController extends Controller
     public function show($slug){
       // GET /blog/id
 
-      $post = Post::where('slug', $slug)->first();      
+      $post = Post::where('slug', $slug)->first();
 
       return view('blog.show', compact('post'));
     }
@@ -60,7 +60,7 @@ class BlogController extends Controller
       // Add slug to request
       request()->merge(['slug' => str_slug(request('title'))]);
 
-      $post = new Post(request(['title', 'body', 'slug']));
+      $post = new Post(request(['title', 'body', 'slug', 'thumbnail']));
 
       auth()->user()->publish($post);
 
@@ -69,9 +69,9 @@ class BlogController extends Controller
       return redirect('/admin/post');
     }
 
-    public function edit($id){
+    public function edit($slug){
       // GET /blog/id/edit
-      $post = Post::findOrFail($id);
+      $post = Post::where('slug', $slug)->first();
 
       $categories = Category::get()->pluck('name')->toArray();
 

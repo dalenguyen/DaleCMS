@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('header_script')
-  <link rel="shortcut icon" type="image/png" href="{{ asset('/public/vendor/laravel-filemanager/img/folder.png') }}">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 @endsection
@@ -20,7 +19,8 @@
           @include('admin.posts._form', [
             'title' => '',
             'body'  => '',
-            'selectedArray' => []
+            'selectedArray' => [],
+            'thumbnail' => ''
           ])
       </form>
       <!-- PAGE CONTENT ENDS -->
@@ -48,7 +48,7 @@
         "image link"
       ],
       relative_urls: false,
-      height: 200,
+      height: 400,
       file_browser_callback : function(field_name, url, type, win) {
         var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
         var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;

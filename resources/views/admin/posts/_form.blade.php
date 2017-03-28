@@ -17,16 +17,6 @@
   </div>
 
   @include('partials.errors')
-
-    <div class="input-group">
-      <span class="input-group-btn">
-        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-          <i class="fa fa-picture-o"></i> Choose
-        </a>
-      </span>
-      <input id="thumbnail" class="form-control" type="text" name="filepath">
-    </div>
-    <img id="holder" style="margin-top:15px;max-height:100px;">
 </div>
 
 <div class="col-xs-3">
@@ -39,6 +29,18 @@
       @endforeach
     </select>
   </div>
+
+  <div class="input-group">
+    <span class="input-group-btn">
+      <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+        <i class="fa fa-picture-o"></i> Featured Image
+      </a>
+    </span>
+    <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+  </div>
+
+  <img id="holder" style="margin-top:15px;max-height:100px;" src="{{$thumbnail}}">
+  <br>
 
   <div class="form-group">
     <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-pencil"></i> Save</button>

@@ -15,7 +15,7 @@ class Post extends Model
    * @var array
    */
   protected $fillable = [
-      'title', 'body', 'slug'
+      'title', 'body', 'slug', 'thumbnail'
   ];
 
   public function categories(){
