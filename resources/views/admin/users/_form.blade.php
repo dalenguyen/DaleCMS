@@ -26,7 +26,9 @@
     <select class="form-group" id="role" name="role" class="selectpicker">
       <option value="Subscriber">Subscriber</option>
       <option value="Blogger" {{ $user ? ($user->is_blogger ? "selected" : "") : ""}}>Blogger</option>
-      <option value="Admin" {{ $user ? ($user->is_admin ? "selected" : "") : ""}}>Admin</option>
+      @if(Auth::user()->id === 1)
+        <option value="Admin" {{ $user ? ($user->is_admin ? "selected" : "") : ""}}>Admin</option>
+      @endif
     </select>
   </div>
 </div>
@@ -41,12 +43,24 @@
 </div>
 
 <div class="form-group col-sm-12">
+
+    @if($button === "Update")
+      @if(!Auth::user()->isAdmin() && ($user->id === 1 || $user->id === 6))
+        <div class="alert alert-warning" role="alert"><strong>Warning!</strong> This user can't be deleted or updated</div>
+      @else
         <button type="submit" class="btn btn-primary">
             <i class="fa fa-btn fa-pencil"></i> {{$button}}
         </button>
         @if ($user)
-          <a href="javascript: deleteUser()"><div class="btn btn-danger"><i class="fa fa-btn fa-trash"></i> Delete</div></a>
+            <a href="javascript: deleteUser()"><div class="btn btn-danger"><i class="fa fa-btn fa-trash"></i> Delete</div></a>
         @endif
+      @endif
+    @else
+      <button type="submit" class="btn btn-primary">
+          <i class="fa fa-btn fa-pencil"></i> {{$button}}
+      </button>
+    @endif
+
 </div>
 
 @include('partials.errors')

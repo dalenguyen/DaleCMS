@@ -25,6 +25,8 @@ class UserController extends Controller
      */
     public function index()
     {
+
+        // return view('admin.test2');
         $users = User::get();
 
         return view('admin.users.index', compact('users'));
@@ -109,7 +111,10 @@ class UserController extends Controller
     {
       $user = User::findOrFail($id);
 
-      $user->delete();
+      // Prevent Admin and demo to be delete
+      if($user->id !== 1 && $user->id !== 6){
+        $user->delete();
+      }
 
       return redirect('/admin/user');
     }

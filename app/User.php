@@ -80,4 +80,8 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function isAdmin(){
+      return $this->getRole() === "Admin" ? true : false;
+    }
 }

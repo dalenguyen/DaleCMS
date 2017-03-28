@@ -29,11 +29,6 @@
 @yield('scripts')
 
 <script type="text/javascript">
-  // $('.dropdown-toggle').click(function(){
-  //   console.log('click');
-  //   //now find the `.child` elements that are direct children of the clicked `<li>` and toggle it into or out-of-view
-  //   $(this).parent().children('.submenu').slideToggle('slow');
-  // });
 
   // add active class to nav menu
   $(function() {
