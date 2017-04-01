@@ -24,7 +24,7 @@
         Welcome to
         <strong class="green">
           DaleCMS
-          <small>(V1.0)</small>
+          <small>(V1.2.0)</small>
         </strong> Framework
       </div>
       <!-- PAGE CONTENT ENDS -->

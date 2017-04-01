@@ -79,7 +79,7 @@
       </ul>
     </li> <!-- Posts  -->
 
-    <li class="">
+    {{-- <li class="">
       <a href="#" class="dropdown-toggle">
         <i class="menu-icon fa fa-tag"></i>
         <span class="menu-text"> Pages </span>
@@ -108,7 +108,7 @@
           <b class="arrow"></b>
         </li>
       </ul>
-    </li>
+    </li> --}}
 
     <li class="">
       <a href="#" class="dropdown-toggle">

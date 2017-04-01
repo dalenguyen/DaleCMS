@@ -11,6 +11,10 @@
 
 DaleCMS is a Content Management System (CMS) and web platform that I develop for my personal portfolio website by utilizing the following advantages from Laravel and VueJS:
 
+Admin Login: [http://dalenguyen.me/admin](http://dalenguyen.me/admin)
+Demo User: demo@dalenguyen.me
+Password: demo
+
 ## DaleCMS Version 1.0.0
 
 At first, I want to create the front end for the CMS that has ability to
@@ -23,6 +27,10 @@ At first, I want to create the front end for the CMS that has ability to
 * Ability to create a simple post
 * Add Categories to a post
 * Simple User Management system
+
+## DaleCMS Version 1.2.0
+
+* Community testing & bug fixing
 
 ## Security Vulnerabilities
 
