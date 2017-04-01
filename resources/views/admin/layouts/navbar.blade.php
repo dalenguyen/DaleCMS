@@ -278,7 +278,7 @@
 
         <li class="light-blue dropdown-modal">
           <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-            <img class="nav-user-photo" src="https://avatars0.githubusercontent.com/u/14116156?v=3&u=f0d2e8b9da63f2f63fab4f17e65effa945a1b92a&s=48" alt="Jason's Photo" />
+            <img class="nav-user-photo" src="https://avatars0.githubusercontent.com/u/14116156?v=3&u=f0d2e8b9da63f2f63fab4f17e65effa945a1b92a&s=48" alt="Dale's Photo" />
             <span class="user-info">
               <small>Welcome,</small>
               {{Auth::user()->getFullName()}}

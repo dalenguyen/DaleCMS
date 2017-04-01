@@ -153,26 +153,28 @@
 								href = $a.attr('href'),
 								target = $a.attr('target');
 
-							if (!href || href == '#' || href == '' || href == '#' + id)
+							if (!href || href == '#' || href == '' || href == '/#' + id)
 								return;
 
 							// Cancel original event.
 								event.preventDefault();
 								event.stopPropagation();
 
+								// Redirect to href.
+								if (target == '_blank'){
+									window.open(href);
+								} else if( href[1] != '#'
+													|| window.location.href.indexOf('blog') !== -1
+													|| window.location.href.indexOf('login') !== -1){
+									window.open(href, '_top');
+								}else {
+									$('html, body').animate({
+											scrollTop: $( $(this).attr('href').substring(1)).offset().top
+									}, 1000);
+								}
+
 							// Hide panel.
 								$this._hide();
-
-							// Redirect to href.
-								window.setTimeout(function() {
-
-									if (target == '_blank')
-										window.open(href);
-									else
-										window.location.href = href;
-
-								}, config.delay + 10);
-
 						});
 
 				}
@@ -272,7 +274,7 @@
 				});
 
 			// Event: Toggle.
-				$body.on('click', 'a[href="#' + id + '"]', function(event) {
+				$body.on('click', 'a[href="/#' + id + '"]', function(event) {
 
 					event.preventDefault();
 					event.stopPropagation();

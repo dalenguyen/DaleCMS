@@ -55,7 +55,7 @@
 						var t = $(this),
 							href = t.attr('href');
 
-						if (href[0] != '#')
+						if (href[1] != '#')
 							return;
 
 						e.preventDefault();
@@ -77,10 +77,10 @@
 
 					var href = $(this).attr('href');
 
-					if (href[0] != '#')
+					if (href[1] != '#')
 						return;
 
-					ids.push(href.substring(1));
+					ids.push(href.substring(2));					
 
 				});
 
@@ -91,7 +91,7 @@
 			// Toggle.
 				$(
 					'<div id="headerToggle">' +
-						'<a href="#header" class="toggle"></a>' +
+						'<a href="/#header" class="toggle"></a>' +
 					'</div>'
 				)
 					.appendTo($body);
