@@ -11,8 +11,7 @@
       <a class="breadcrumb-item" href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
       <a class="breadcrumb-item" href="http://dalenguyen.me/blog">Blog</a>
       <a class="breadcrumb-item" href="#">Post</a>
-    </nav>
-    {{-- blog/post.blade.php --}}
+    </nav>    
 
     @include('blog.post', [
       "postContent" => $post->body,

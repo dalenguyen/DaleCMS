@@ -34,7 +34,11 @@ class BlogController extends Controller
 
       $post = Post::where('slug', $slug)->first();
 
-      return view('blog.show', compact('post'));
+      if(is_null($post)){
+          abort(404, 'Page not found');
+      }else{
+          return view('blog.show', compact('post'));
+      }
     }
 
     public function create(){
