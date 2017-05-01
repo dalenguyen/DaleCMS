@@ -3,10 +3,10 @@
     <div class="container">
 
       <header>
-        <h2>Selected Works</h2>
+        <h2>Project Gallery</h2>
       </header>
 
-      <p>I have a solid background in SEO, Branding and Online Marketing, so all of my web projects was done with the integration of those skills.</p>
+      <p>In addition to cutting edge code, I bring a solid background in SEO, Branding and Online Marketing.</p>
 
       <div class="row">
         <div class="4u 12u$(mobile)">

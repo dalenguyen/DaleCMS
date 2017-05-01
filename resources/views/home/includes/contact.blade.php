@@ -6,7 +6,10 @@
     </header>
     <p>I'm currently accepting select web design projects</p>
     <h4>
-      <i class="icon fa-envelope-o" aria-hidden="true"></i> <a href="mailto:dungnq@itbox4vn.com">dungnq@itbox4vn.com</a>
+      <i class="icon fa-envelope-o" aria-hidden="true"></i> <a href="mailto:dungnq@itbox4vn.com"> dungnq@itbox4vn.com</a>
+    </h4>
+    <h4>
+      <i class="icon fa-user" aria-hidden="true"></i> <a href="http://hubs.ly/H06-yPP0"> View Dale's resume</a>      
     </h4>
   </div>
 </section>
