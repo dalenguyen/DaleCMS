@@ -158,14 +158,15 @@
 
 							// Cancel original event.
 								event.preventDefault();
-								event.stopPropagation();
+								event.stopPropagation();								
 
 								// Redirect to href.
 								if (target == '_blank'){
 									window.open(href);
 								} else if( href[1] != '#'
 													|| window.location.href.indexOf('blog') !== -1
-													|| window.location.href.indexOf('login') !== -1){
+													|| window.location.href.indexOf('login') !== -1
+													|| window.location.href.indexOf('resume') !== -1){
 									window.open(href, '_top');
 								}else {
 									$('html, body').animate({

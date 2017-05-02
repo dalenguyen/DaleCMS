@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'index']);
+        $this->middleware('auth', ['except' => ['index', 'resume']]);
     }
 
     /**
@@ -24,5 +24,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('home.index');
+    }
+
+    /*
+     *  Show resume page
+     *  @return \Illuminate\Http\Response
+     */
+    public function resume(){
+      return view('home.resume');
     }
 }

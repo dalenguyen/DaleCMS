@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/resume', 'HomeController@resume');
+
 Route::get('/admin', 'AdminController@index');
 
 Route::get('/admin/post/create', 'BlogController@create');

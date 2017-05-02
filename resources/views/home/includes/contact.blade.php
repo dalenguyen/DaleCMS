@@ -8,8 +8,9 @@
     <h4>
       <i class="icon fa-envelope-o" aria-hidden="true"></i> <a href="mailto:dungnq@itbox4vn.com"> dungnq@itbox4vn.com</a>
     </h4>
+    <br>
     <h4>
-      <i class="icon fa-user" aria-hidden="true"></i> <a href="http://hubs.ly/H06-yPP0"> View Dale's resume</a>      
+      <i class="icon fa-user" aria-hidden="true"></i> <a href="http://dalenguyen.me/resume"> View Dale's resume</a>
     </h4>
   </div>
 </section>
