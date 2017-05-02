@@ -15,11 +15,11 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="/#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Architectural Philosophy</span></a></li>
-					<li><a href="/blog" id="blog-link" class="skel-layers-ignoreHref"><span class="icon fa-book">Thoughts</span></a></li>
+					{{-- <li><a href="/blog" id="blog-link" class="skel-layers-ignoreHref"><span class="icon fa-book">Thoughts</span></a></li> --}}
 					<li><a href="/#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Digital Portfolio</span></a></li>
 					{{-- <li><a href="#" id="project-link" class="skel-layers-ignoreHref"><span class="icon fa-code">Projects</span></a></li> --}}
 					<li><a href="/#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Biography</span></a></li>
-					<li><a href="/#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+					<li><a href="/#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>					
 
 					@if(Auth::check())
 						<li><hr></li>

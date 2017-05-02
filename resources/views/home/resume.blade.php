@@ -5,6 +5,15 @@
 @section('title', 'Resume')
 
 @section('header_script')
+  <meta name="description" content="This is Dale Nguyen's Resume for Web Developer position">
+  <meta name="author" content="Dale Nguyen">
+  <meta name="keywords" content="Dale Nguyen, Resume, Web Developer, PHP, Laravel, JavaScript, HTML, CSS">
+
+  <meta property="og:image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAPlAAAAJDhkZDBmMGFmLTgzZDAtNGUxMy04ODBjLWI1Yjk3NzI2MzNkYw.jpg">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+
   <link rel="stylesheet" href="/public/css/resume.css">
 @endsection
 
@@ -134,7 +143,7 @@
               <span class="green-dot">&#x25cf;</span>
               <span class="green-dot">&#x25cf;</span>
               <span class="green-dot">&#x25cf;</span>
-              <span class="gray-dot">&#x25cf;</span>
+              <span class="green-dot">&#x25cf;</span>
               <span class="gray-dot">&#x25cf;</span>
             </section>
 
@@ -174,7 +183,7 @@
               <span class="green-dot">&#x25cf;</span>
               <span class="green-dot">&#x25cf;</span>
               <span class="green-dot">&#x25cf;</span>
-              <span class="gray-dot">&#x25cf;</span>
+              <span class="green-dot">&#x25cf;</span>
               <span class="gray-dot">&#x25cf;</span>
             </section>
 
@@ -254,7 +263,7 @@
               <span class="green-dot">&#x25cf;</span>
               <span class="green-dot">&#x25cf;</span>
               <span class="green-dot">&#x25cf;</span>
-              <span class="gray-dot">&#x25cf;</span>
+              <span class="green-dot">&#x25cf;</span>
               <span class="gray-dot">&#x25cf;</span>
             </section>
 
