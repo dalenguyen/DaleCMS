@@ -1,8 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="row">
+<div class="col-sm-2">
+</div>
 <div class="col-sm-8">
-    <div class="panel panel-default">
+    <div class="panel panel-default container">
           <h2>Login</h2>
           <hr>
             <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
@@ -52,5 +55,6 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 @endsection
