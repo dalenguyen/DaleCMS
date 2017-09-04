@@ -18,6 +18,6 @@ class Posts {
   public function getPosts(){
     return Post::latest()
               ->filter(request(['month', 'year', 'author']))
-              ->get();
+              ->simplePaginate(4);
   }
 }

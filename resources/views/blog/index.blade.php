@@ -12,7 +12,7 @@
         <a class="breadcrumb-item" href="http://dalenguyen.me/blog">Blog</a>
         <a class="breadcrumb-item" href="/blog">All</a>
       </nav>
-      
+
       <!-- Search on mobile -->
       <div class="hidden-sm-up">
         <form action="/blog" method="get" class="navbar-form navbar-left" role="search">
@@ -42,10 +42,11 @@
         @endforeach
       @endif
 
-      <nav class="blog-pagination">
+      {{ $posts->links() }}
+      <!-- <nav class="blog-pagination">
         <a class="btn btn-outline-primary" href="#">Older</a>
         <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-      </nav>
+      </nav> -->
     </div>
     <!-- sidebar -->
     <div id="sidebar" class="blog-sidebar col-sm-4">

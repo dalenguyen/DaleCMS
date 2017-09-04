@@ -26,12 +26,12 @@
         </div>
       </form>
     </div>
-    
+
     @include('blog.post', [
       "postContent" => $post->body,
       "readmore"  => false
     ])
-
+        
   </div>
   <!-- sidebar -->
   <div id="sidebar" class="blog-sidebar col-sm-4">

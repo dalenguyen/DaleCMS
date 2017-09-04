@@ -29,15 +29,14 @@ class BlogController extends Controller
         $message = "";
         $posts = Post::where('body','like','%'.$search.'%')
         ->orderBy('title')
-        ->paginate(20);
+        ->simplePaginate(4);
 
         if(count($posts) > 0){ // posts found
           $message = "We found ". count($posts). " results:";
-
         }else{
-          //dd($posts);
           $message = "Sorry, no matches found! Please search again.";
         }
+
         return view('blog.index', compact('posts', 'message'));
       }else{
         // Post filter for archives and author from Posts Repositories
