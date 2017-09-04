@@ -20,13 +20,31 @@ class BlogController extends Controller
         $this->middleware('blogger', ['except' => ['index', 'show']]);
     }
 
-    public function index(Posts $posts){
+    public function index(Posts $posts, Request $request){
       // /blog
 
-      // Post filter for archives and author from Posts Repositories
-      $posts = $posts->getPosts();
+      // Check if this is a search request
+      $search = $request->get('search');
+      if(!is_null($search)){
+        $message = "";
+        $posts = Post::where('body','like','%'.$search.'%')
+        ->orderBy('title')
+        ->paginate(20);
 
-      return view('blog.index', compact('posts'));
+        if(count($posts) > 0){ // posts found
+          $message = "We found ". count($posts). " results:";
+
+        }else{
+          //dd($posts);
+          $message = "Sorry, no matches found! Please search again.";
+        }
+        return view('blog.index', compact('posts', 'message'));
+      }else{
+        // Post filter for archives and author from Posts Repositories
+        $posts = $posts->getPosts();
+
+        return view('blog.index', compact('posts'));
+      }
     }
 
     public function show($slug){
