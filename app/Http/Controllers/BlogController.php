@@ -54,7 +54,7 @@ class BlogController extends Controller
       if(is_null($post)){
           abort(404, 'Page not found');
       }else{
-          return view('blog.show', compact('post'));
+          return view('blog.index', compact('post'));
       }
     }
 

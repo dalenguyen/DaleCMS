@@ -10,7 +10,11 @@
       <nav class="breadcrumb ">
         <a class="breadcrumb-item" href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
         <a class="breadcrumb-item" href="http://dalenguyen.me/blog">Blog</a>
-        <a class="breadcrumb-item" href="/blog">All</a>
+        @if(isset($posts))
+          <a class="breadcrumb-item" href="/blog">All</a>
+        @elseif(isset($post))
+          <a class="breadcrumb-item">{{ str_limit(ucfirst($post->title),30) }}</a>
+        @endif
       </nav>
 
       <!-- Search on mobile -->
@@ -27,26 +31,30 @@
         </form>
       </div>
 
-      @if(isset($message))
-        <div class="alert alert-info">
-          <strong>{{$message}}</strong>
-        </div>
+      @if(isset($posts))
+        @if(isset($message))
+          <div class="alert alert-info">
+            <strong>{{$message}}</strong>
+          </div>
+        @endif
+
+        @if(count($posts) > 0)
+          @foreach ($posts as $post)
+            @include('blog.post', [
+              "postContent" => str_limit($post->body, 300),
+              "readmore"  => true
+            ])
+          @endforeach
+
+          {{ $posts->links() }} //page pagination
+        @endif
+      @elseif(isset($post))
+        @include('blog.post', [
+          "postContent" => $post->body,
+          "readmore"  => false
+        ])
       @endif
 
-      @if(count($posts) > 0)
-        @foreach ($posts as $post)
-          @include('blog.post', [
-            "postContent" => str_limit($post->body, 300),
-            "readmore"  => true
-          ])
-        @endforeach
-      @endif
-
-      {{ $posts->links() }}
-      <!-- <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-      </nav> -->
     </div>
     <!-- sidebar -->
     <div id="sidebar" class="blog-sidebar col-sm-4">
