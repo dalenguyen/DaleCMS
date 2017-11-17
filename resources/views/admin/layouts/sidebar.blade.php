@@ -76,6 +76,13 @@
             Categories
           </a>
         </li>
+
+        <li class="">
+          <a href="/admin/tag">
+            <i class="menu-icon fa fa-caret-right"></i>
+            Tags
+          </a>
+        </li>
       </ul>
     </li> <!-- Posts  -->
 

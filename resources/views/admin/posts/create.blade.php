@@ -19,7 +19,8 @@
           @include('admin.posts._form', [
             'title' => '',
             'body'  => '',
-            'selectedArray' => [],
+            'categorySelectedArray' => [],
+            'tagSelectedArray' => [],
             'thumbnail' => ''
           ])
       </form>

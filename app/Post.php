@@ -22,6 +22,10 @@ class Post extends Model
     return $this->belongsToMany(Category::class);
   }
 
+  public function tags(){
+    return $this->belongsToMany(Tag::class);
+  }
+
   public function user(){
     return $this->belongsTo(User::class);
   }
@@ -64,5 +68,13 @@ class Post extends Model
 
   public function getCategory(){
     return ($this->categories->first()) ? $this->categories->first()->name : "Uncategorized";
+  }
+
+  /**
+   * Return tag of a post
+   */
+
+  public function getTag(){
+    return ($this->tags->first()) ? $this->tags->first()->name : "Uncategorized";
   }
 }

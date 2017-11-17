@@ -30,5 +30,6 @@ Route::put('/admin/post/{id}/update', 'BlogController@update');
 Route::delete('/admin/post/{id}', 'BlogController@destroy');
 
 Route::resource('/admin/category', 'CategoryController');
+Route::resource('/admin/tag', 'TagController');
 
 Auth::routes();

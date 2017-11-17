@@ -25,7 +25,16 @@
     <label for="category">Category:</label>
     <select id="categories" name="categories[]" multiple class="selectpicker" data-live-search="true">
       @foreach ($categories as $key => $value)
-        <option value="{{$key}}" {{ in_array($key, $selectedArray) ? "selected" : ""}}>{{$value}}</option>
+        <option value="{{$key}}" {{ in_array($key, $categorySelectedArray) ? "selected" : ""}}>{{$value}}</option>
+      @endforeach
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="tag">Tag:</label>
+    <select id="tags" name="tags[]" multiple class="selectpicker" data-live-search="true">
+      @foreach ($tags as $key => $value)
+        <option value="{{$key}}" {{ in_array($key, $tagSelectedArray) ? "selected" : ""}}>{{$value}}</option>
       @endforeach
     </select>
   </div>

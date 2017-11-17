@@ -7,6 +7,7 @@ use App\Post;
 use Carbon\Carbon;
 use App\Repositories\Posts;
 use App\Category;
+use App\Tag;
 
 class BlogController extends Controller
 {
@@ -63,11 +64,19 @@ class BlogController extends Controller
 
       $categories = Category::get()->pluck('name')->toArray();
 
-      // Array start at 1 instead of 0
-      $categories = array_combine(range(1, count($categories)), $categories);
+      if(!empty($categories)){
+        // Array start at 1 instead of 0
+        $categories = array_combine(range(1, count($categories)), $categories);
+      }
 
+      $tags = Tag::get()->pluck('name')->toArray();
 
-      return view('admin.posts.create', compact('categories'));
+      if(!empty($tags)){
+        // Array start at 1 instead of 0
+        $tags = array_combine(range(1, count($tags)), $tags);
+      }
+
+      return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     public function store(){
@@ -86,6 +95,7 @@ class BlogController extends Controller
       auth()->user()->publish($post);
 
       $post->categories()->attach(request('categories'));
+      $post->tags()->attach(request('tags'));
 
       return redirect('/admin/post');
     }
@@ -100,12 +110,17 @@ class BlogController extends Controller
       array_unshift($categories,"");
       unset($categories[0]);
 
-      $selectedArray = $post->categories->pluck('id')->toArray();
+      $categorySelectedArray = $post->categories->pluck('id')->toArray();
 
-      // dd(in_array(2, $selectedArray));
+      $tags = Tag::get()->pluck('name')->toArray();
 
+      // Array start at 1 instead of 0
+      array_unshift($tags,"");
+      unset($tags[0]);
 
-      return view('admin.posts.edit', compact('post', 'categories', 'selectedArray'));
+      $tagSelectedArray = $post->tags->pluck('id')->toArray();
+
+      return view('admin.posts.edit', compact('post', 'categories', 'tags', 'categorySelectedArray', 'tagSelectedArray'));
 
     }
 
@@ -122,9 +137,17 @@ class BlogController extends Controller
       // Sync Categories to post
 
         if(request('categories') !== null){
-            $this->syncCategoriess(request('categories'), $post);
+            $this->syncCategories(request('categories'), $post);
         }else{
-            $this->syncCategoriess([], $post);
+            $this->syncCategories([], $post);
+        }
+
+      // Sync Tags to post
+
+        if(request('tags') !== null){
+            $this->syncTags(request('tags'), $post);
+        }else{
+            $this->syncTags([], $post);
         }
 
       $post->update(request()->all());
@@ -148,8 +171,19 @@ class BlogController extends Controller
      * @param $categories array
      * @param $post
      */
-    private function syncCategoriess(array $categories, $post)
+    private function syncCategories(array $categories, $post)
     {
         $post->categories()->sync($categories);
+    }
+
+    /**
+     * Sync Tags to post update method
+     *
+     * @param $tags array
+     * @param $post
+     */
+    private function syncTags(array $tags, $post)
+    {
+        $post->tags()->sync($tags);
     }
 }
