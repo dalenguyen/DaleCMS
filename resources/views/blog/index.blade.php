@@ -58,10 +58,10 @@
         <!-- Disqus integration -->
 
         <div id="disqus_thread"></div>
-        <script>      
+        <script>
 
           var disqus_config = function () {
-            this.page.url = 'http://dalenguyen/blog/{{$post->slug}}';
+            this.page.url = 'http://dalenguyen.me/blog/{{$post->slug}}';
             this.page.identifier = {{$post->id}};
           };
 
