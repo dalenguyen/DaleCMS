@@ -54,13 +54,13 @@
           <div class="share-tools pull-left">
             <ul>
               <li>
-                <a href="https://www.facebook.com/sharer.php?u=http://dalenguyen.me/blog/{{$post->id}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
+                <a href="https://www.facebook.com/sharer.php?u=http://dalenguyen.me/blog/{{$post->slug}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
                   <i class="fa fa-facebook"></i>
                 </a>
               </li>
-              <li><a href="https://twitter.com/share?url=http://dalenguyen.me/blog/{{$post->id}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://pinterest.com/pin/create/button/?source_url=http://dalenguyen.me/blog/{{$post->id}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a></li>
-              <li><a href="https://plus.google.com/share?url=http://dalenguyen.me/blog/{{$post->id}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Google Plus"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="https://twitter.com/share?url=http://dalenguyen.me/blog/{{$post->slug}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://pinterest.com/pin/create/button/?source_url=http://dalenguyen.me/blog/{{$post->slug}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="https://plus.google.com/share?url=http://dalenguyen.me/blog/{{$post->slug}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Google Plus"><i class="fa fa-google-plus"></i></a></li>
             </ul>
           </div>
         </div>
