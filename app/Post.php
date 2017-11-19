@@ -55,11 +55,20 @@ class Post extends Model
    *
    * @return [Array] [description]
    */
-  public static function archives(){
+  public static function getArchives(){
     return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
                 ->groupBy('year','month')
                 ->orderByRaw('min(created_at) desc')
                 ->get()->toArray();
+  }
+
+  /**
+   * Return Categories for all the view in AppServiceProvider
+   *
+   * @return [Array] [description]
+   */
+  public static function getcategories(){
+    return Category::get()->pluck('name')->toArray();
   }
 
   /**
