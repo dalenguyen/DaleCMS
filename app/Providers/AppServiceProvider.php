@@ -16,8 +16,9 @@ class AppServiceProvider extends ServiceProvider
         // Call post archives, categories everytime sidebar is loaded in view
         view()->composer('layouts.sidebar', function($view){
           $archives = \App\Post::getArchives();
-          $categories = \App\Post::getcategories();
-          $view->with(['archives' => $archives, 'categories' => $categories]);
+          $categories = \App\Post::getCategories();
+          $tags = \App\Post::getTags();
+          $view->with(['archives' => $archives, 'categories' => $categories, 'tags' => $tags]);
         });
     }
 

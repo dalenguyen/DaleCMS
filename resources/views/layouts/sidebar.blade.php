@@ -33,3 +33,14 @@
     @endforeach
   </ol>
 </div>
+
+<div class="category-module">
+  <h4>Tags</h4>
+  <p>
+    @foreach ($tags as $tag)
+      <span>
+        <a href="/blog/?tag={{$tag}}">{{$tag}}</a>
+      </span>
+    @endforeach
+  </p>
+</div>

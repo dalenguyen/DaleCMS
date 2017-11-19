@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\Tag;
 use App\User;
 use Carbon\Carbon;
 
@@ -67,8 +68,17 @@ class Post extends Model
    *
    * @return [Array] [description]
    */
-  public static function getcategories(){
+  public static function getCategories(){
     return Category::get()->pluck('name')->toArray();
+  }
+
+  /**
+   * Return Tags for all the view in AppServiceProvider
+   *
+   * @return [Array] [description]
+   */
+  public static function getTags(){
+    return Tag::get()->pluck('name')->toArray();
   }
 
   /**
