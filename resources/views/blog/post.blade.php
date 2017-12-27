@@ -1,4 +1,8 @@
 {{-- blog/post.blade.php --}}
+@section('header_script')
+  <!-- Code decoration -->
+  <link rel="stylesheet" href="/public/css/prism.css">
+@endsection
 <article>
   <div class="blog-post clearfix">
     <div class="post-title-container">
@@ -68,3 +72,8 @@
     </div>
   </div>
 </article>
+
+@section('footer_script')
+  <!-- Code decoration JS -->
+  <script src="/public/js/prism.js"></script>
+@endsection

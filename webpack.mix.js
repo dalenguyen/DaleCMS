@@ -16,3 +16,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/admin.scss', 'public/css/admin')
    .sass('resources/assets/sass/resume.scss', 'public/css');
+
+mix.copy('node_modules/prismjs/themes/prism.css', 'public/css/prism.css');
+mix.copy('node_modules/prismjs/components/prism-core.js', 'public/js/prism.js');

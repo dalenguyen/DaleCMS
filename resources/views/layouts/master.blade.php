@@ -45,6 +45,7 @@
      <script src="/public/js/util.js"></script>
      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
      <script src="/public/js/main.js"></script>
+     @yield('footer_script')
      <script id="dsq-count-scr" src="//dalenguyen-me.disqus.com/count.js" async></script>
    </body>
  </html>
