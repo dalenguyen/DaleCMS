@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "prismjs": "^1.21.0"
+    "prismjs": "^1.23.0"
   }
 }
